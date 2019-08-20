@@ -7,10 +7,7 @@
   "AttributeDefinitions": [
     {"AttributeName": "UserId", "AttributeType": "S"},
     {"AttributeName": "GameTitle", "AttributeType": "S"},
-    {"AttributeName": "TopScore", "AttributeType": "N"},
-    {"AttributeName": "TopScoreDateTime", "AttributeType": "S"},
-    {"AttributeName": "Wins", "AttributeType": "N"},
-    {"AttributeName": "Losses", "AttributeType": "N"}
+    {"AttributeName": "TopScore", "AttributeType": "N"}
   ],
   "ProvisionedThroughput": {
     "ReadCapacityUnits": 50,
@@ -23,9 +20,13 @@
         {"AttributeName": "GameTitle", "KeyType": "HASH"},
         {"AttributeName": "TopScore", "KeyType": "RANGE"}
       ],
-      "Projection" : {
-          "ProjectType" : "Include",
-          "NonKeyAttributes" : ["TopScoreDateTime","Wins","Losses"]
+      "Projection": {
+        "ProjectionType": "INCLUDE",
+        "NonKeyAttributes": ["TopScoreDateTime", "Wins", "Losses"]
+      },
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 50,
+        "WriteCapacityUnits": 50
       }
     }
   ]
