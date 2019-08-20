@@ -1,0 +1,32 @@
+{
+  "TableName": "GameScores",
+  "KeySchema": [
+    {"AttributeName": "UserId", "KeyType": "HASH"},
+    {"AttributeName": "GameTitle", "KeyType": "RANGE"}
+  ],
+  "AttributeDefinitions": [
+    {"AttributeName": "UserId", "AttributeType": "S"},
+    {"AttributeName": "GameTitle", "AttributeType": "S"},
+    {"AttributeName": "TopScore", "AttributeType": "N"},
+    {"AttributeName": "TopScoreDateTime", "AttributeType": "S"},
+    {"AttributeName": "Wins", "AttributeType": "N"},
+    {"AttributeName": "Losses", "AttributeType": "N"}
+  ],
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 50,
+    "WriteCapacityUnits": 50
+  },
+  "GlobalSecondaryIndexes": [
+    {
+      "IndexName": "GameTitleIndex",
+      "KeySchema": [
+        {"AttributeName": "GameTitle", "KeyType": "HASH"},
+        {"AttributeName": "TopScore", "KeyType": "RANGE"}
+      ],
+      "Projection" : {
+          "ProjectType" : "Include",
+          "NonKeyAttributes" : ["TopScoreDateTime","Wins","Losses"]
+      }
+    }
+  ]
+}
