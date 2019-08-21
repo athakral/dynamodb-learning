@@ -20,6 +20,10 @@
     {
       "AttributeName": "sk",
       "AttributeType": "S"
+    },
+    {
+      "AttributeName": "center_uuid",
+      "AttributeType": "S"
     }
   ],
   "KeySchema": [
@@ -37,6 +41,26 @@
     "WriteCapacityUnits": 100
   },
   "GlobalSecondaryIndexes": [
+{
+      "IndexName": "center-id-user-notification-id",
+      "KeySchema": [
+        {
+          "AttributeName": "center_uuid",
+          "KeyType": "HASH"
+        },
+        {
+          "AttributeName": "sk",
+          "KeyType": "RANGE"
+        }
+      ],
+      "Projection": {
+        "ProjectionType": "ALL"
+      },
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 100,
+        "WriteCapacityUnits": 100
+      }
+    },
     {
       "IndexName": "notifications_system-gsi2",
       "KeySchema": [
