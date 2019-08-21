@@ -1,127 +1,101 @@
 {
-    "Table": {
-        "AttributeDefinitions": [
-            {
-                "AttributeName": "expired",
-                "AttributeType": "S"
-            },
-            {
-                "AttributeName": "gsi1_sk",
-                "AttributeType": "S"
-            },
-            {
-                "AttributeName": "gsi2_sk",
-                "AttributeType": "N"
-            },
-            {
-                "AttributeName": "pk",
-                "AttributeType": "S"
-            },
-            {
-                "AttributeName": "sk",
-                "AttributeType": "S"
-            }
-        ],
-        "TableName": "production_notifications_system",
-        "KeySchema": [
-            {
-                "AttributeName": "pk",
-                "KeyType": "HASH"
-            },
-            {
-                "AttributeName": "sk",
-                "KeyType": "RANGE"
-            }
-        ],
-        "TableStatus": "ACTIVE",
-        "CreationDateTime": 1566188124.237,
-        "ProvisionedThroughput": {
-            "LastIncreaseDateTime": 0.0,
-            "LastDecreaseDateTime": 0.0,
-            "NumberOfDecreasesToday": 0,
-            "ReadCapacityUnits": 100,
-            "WriteCapacityUnits": 100
-        },
-        "TableSizeBytes": 0,
-        "ItemCount": 0,
-        "TableArn": "arn:aws:dynamodb:us-east-1:000000000000:table/production_notifications_system",
-        "BillingModeSummary": {
-            "BillingMode": "PROVISIONED",
-            "LastUpdateToPayPerRequestDateTime": 0.0
-        },
-        "GlobalSecondaryIndexes": [
-            {
-                "IndexName": "notifications_system-gsi2",
-                "KeySchema": [
-                    {
-                        "AttributeName": "sk",
-                        "KeyType": "HASH"
-                    },
-                    {
-                        "AttributeName": "gsi2_sk",
-                        "KeyType": "RANGE"
-                    }
-                ],
-                "Projection": {
-                    "ProjectionType": "ALL"
-                },
-                "IndexStatus": "ACTIVE",
-                "ProvisionedThroughput": {
-                    "ReadCapacityUnits": 100,
-                    "WriteCapacityUnits": 100
-                },
-                "IndexSizeBytes": 0,
-                "ItemCount": 0,
-                "IndexArn": "arn:aws:dynamodb:ddblocal:000000000000:table/production_notifications_system/index/notifications_system-gsi2"
-            },
-            {
-                "IndexName": "notifications_system-gsi1",
-                "KeySchema": [
-                    {
-                        "AttributeName": "sk",
-                        "KeyType": "HASH"
-                    },
-                    {
-                        "AttributeName": "gsi1_sk",
-                        "KeyType": "RANGE"
-                    }
-                ],
-                "Projection": {
-                    "ProjectionType": "ALL"
-                },
-                "IndexStatus": "ACTIVE",
-                "ProvisionedThroughput": {
-                    "ReadCapacityUnits": 100,
-                    "WriteCapacityUnits": 100
-                },
-                "IndexSizeBytes": 0,
-                "ItemCount": 0,
-                "IndexArn": "arn:aws:dynamodb:ddblocal:000000000000:table/production_notifications_system/index/notifications_system-gsi1"
-            },
-            {
-                "IndexName": "notifications_system-active_notification_configs-index",
-                "KeySchema": [
-                    {
-                        "AttributeName": "sk",
-                        "KeyType": "HASH"
-                    },
-                    {
-                        "AttributeName": "expired",
-                        "KeyType": "RANGE"
-                    }
-                ],
-                "Projection": {
-                    "ProjectionType": "ALL"
-                },
-                "IndexStatus": "ACTIVE",
-                "ProvisionedThroughput": {
-                    "ReadCapacityUnits": 100,
-                    "WriteCapacityUnits": 100
-                },
-                "IndexSizeBytes": 0,
-                "ItemCount": 0,
-                "IndexArn": "arn:aws:dynamodb:ddblocal:000000000000:table/production_notifications_system/index/notifications_system-active_notification_configs-index"
-            }
-        ]
+  "TableName": "production_notifications_system",
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "expired",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "gsi1_sk",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "gsi2_sk",
+      "AttributeType": "N"
+    },
+    {
+      "AttributeName": "pk",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "sk",
+      "AttributeType": "S"
     }
+  ],
+  "KeySchema": [
+    {
+      "AttributeName": "pk",
+      "KeyType": "HASH"
+    },
+    {
+      "AttributeName": "sk",
+      "KeyType": "RANGE"
+    }
+  ],
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 100,
+    "WriteCapacityUnits": 100
+  },
+  "GlobalSecondaryIndexes": [
+    {
+      "IndexName": "notifications_system-gsi2",
+      "KeySchema": [
+        {
+          "AttributeName": "sk",
+          "KeyType": "HASH"
+        },
+        {
+          "AttributeName": "gsi2_sk",
+          "KeyType": "RANGE"
+        }
+      ],
+      "Projection": {
+        "ProjectionType": "ALL"
+      },
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 100,
+        "WriteCapacityUnits": 100
+      }
+    },
+    {
+      "IndexName": "notifications_system-gsi1",
+      "KeySchema": [
+        {
+          "AttributeName": "sk",
+          "KeyType": "HASH"
+        },
+        {
+          "AttributeName": "gsi1_sk",
+          "KeyType": "RANGE"
+        }
+      ],
+      "Projection": {
+        "ProjectionType": "ALL"
+      },
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 100,
+        "WriteCapacityUnits": 100
+      }
+    },
+    {
+      "IndexName": "notifications_system-active_notification_configs-index",
+      "KeySchema": [
+        {
+          "AttributeName": "sk",
+          "KeyType": "HASH"
+        },
+        {
+          "AttributeName": "expired",
+          "KeyType": "RANGE"
+        }
+      ],
+      "Projection": {
+        "ProjectionType": "ALL"
+      },
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 100,
+        "WriteCapacityUnits": 100
+      }
+    }
+  ]
 }
