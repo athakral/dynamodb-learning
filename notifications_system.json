@@ -42,7 +42,7 @@
   },
   "GlobalSecondaryIndexes": [
 {
-      "IndexName": "center-id-user-notification-id",
+      "IndexName": "notifications_system-center_notifications-gsi",
       "KeySchema": [
         {
           "AttributeName": "center_uuid",
