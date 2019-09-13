@@ -82,6 +82,22 @@
       }
     },
     {
+      "IndexName": "notifications_system-superadmin_notifications-gsi",
+      "KeySchema": [
+        {
+          "AttributeName": "sk",
+          "KeyType": "HASH"
+        }
+      ],
+      "Projection": {
+        "ProjectionType": "ALL"
+      },
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 100,
+        "WriteCapacityUnits": 100
+      }
+    },
+    {
       "IndexName": "notifications_system-gsi1",
       "KeySchema": [
         {
