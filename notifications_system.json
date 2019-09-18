@@ -24,6 +24,10 @@
     {
       "AttributeName": "sk",
       "AttributeType": "S"
+    },
+    {
+      "AttributeName": "superadmin_usernotification_id",
+      "AttributeType": "S"
     }
   ],
   "KeySchema": [
@@ -125,7 +129,7 @@
       "IndexName": "notifications_system-superadmin_notifications-gsi",
       "KeySchema": [
         {
-          "AttributeName": "sk",
+          "AttributeName": "superadmin_usernotification_id",
           "KeyType": "HASH"
         }
       ],
